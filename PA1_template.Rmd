@@ -16,7 +16,7 @@ steps$date <- as.Date(steps$date)
 
 ## What is mean total number of steps taken per day?
 
-```{r,echo=FALSE,warning=FALSE}
+```{r,echo=TRUE,warning=FALSE}
 output<-aggregate(steps$steps,by=list(steps$date),FUN=sum, na.rm=TRUE)
 output<-cbind(output,as.Date(output[,1]))
 colnames(output)<-c("Date","TotalSteps","Day")
@@ -55,7 +55,7 @@ maxinterval
 ```
 
 ## Imputing missing values
-```{r,echo=FALSE}
+```{r,echo=TRUE}
 numrowswithna<-nrow(steps[is.na(steps$steps),])
 nstep<-steps
 
@@ -84,7 +84,7 @@ print(a)
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
-```{r,echo=FALSE,fig.cap="Weekdays Vs Weekends"}
+```{r,echo=TRUE,fig.cap="Weekdays Vs Weekends"}
 nexsteps <- steps
 nexsteps$dow<-0
 for ( i in 1:nrow(nexsteps)){
